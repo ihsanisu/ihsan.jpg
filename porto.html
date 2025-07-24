@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ihsan</title>
+    <meta name="description" content="Professional graphic design portfolio showcasing logos, posters, and branding work by Ihsan">
+    <meta name="keywords" content="graphic design, logo design, poster design, branding, typography, Kerala designer">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Tailwind CSS with dark mode configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            spacing: {
+              '128': '32rem',
+            },
+            colors: {
+              light: {
+                primary: '#eaeaea',
+                secondary: '#d4d4d4',
+                text: '#282828',
+                accent: '#3b82f6'
+              },
+              dark: {
+                primary: '#282828',
+                secondary: '#1e1e1e',
+                text: '#eaeaea',
+                accent: '#60a5fa'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Montserrat', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+<style>
+  :root {
+  /* Font Families */
+  --font-primary: 'Inter', sans-serif;
+  --font-headings: 'Montserrat', sans-serif;
+
+  /* Color Palette (Light Theme) */
+  --color-bg: #f4f4f5; /* Lighter gray background */
+  --color-text-primary: #18181b; /* Softer black for text */
+  --color-text-secondary: #71717a; /* Muted gray for secondary text */
+  --color-accent: #3b82f6;
+  --color-accent-focus: rgba(59, 130, 246, 0.2);
+
+  /* Component Colors (Light Theme) */
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(0, 0, 0, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+  
+  --color-btn-primary-bg: #18181b;
+  --color-btn-primary-text: #f4f4f5;
+  --color-btn-primary-hover-bg: #27272a;
+  
+  --color-btn-outline-border: #18181b;
+  --color-btn-outline-text: #18181b;
+  --color-btn-outline-hover-bg: rgba(0, 0, 0, 0.05);
+
+  --color-preloader-bg: #18181b;
+  --color-preloader-spinner: #f4f4f5;
+}
+
+.dark {
+  /* Color Palette (Dark Theme) */
+  --color-bg: #18181b; /* Dark zinc background */
+  --color-text-primary: #f4f4f5; /* Off-white text */
+  --color-text-secondary: #a1a1aa; /* Lighter gray for secondary text */
+  --color-accent: #60a5fa;
+  --color-accent-focus: rgba(96, 165, 250, 0.2);
+
+  /* Component Colors (Dark Theme) */
+  --color-glass-bg: rgba(39, 39, 42, 0.7); /* Darker glass background */
+  --color-glass-border: rgba(255, 255, 255, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.3); /* More prominent shadow */
+  --color-shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  --color-btn-primary-bg: #f4f4f5;
+  --color-btn-primary-text: #18181b;
+  --color-btn-primary-hover-bg: #e4e4e7;
+  
+  --color-btn-outline-border: #f4f4f5;
+  --color-btn-outline-text: #f4f4f5;
+  --color-btn-outline-hover-bg: rgba(255, 255, 255, 0.1);
+
+  --color-preloader-bg: #18181b; /* Preloader is dark in both themes */
+  --color-preloader-spinner: #f4f4f5;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Masonry Grid Layout */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 16px;
+}
+@media (max-width: 768px) { .masonry-grid { column-count: 2; } }
+@media (max-width: 480px) { .masonry-grid { column-count: 1; } }
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 12px;
+  break-inside: avoid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+}
+
+.masonry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--color-shadow-hover);
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.03);
+}
+
+.masonry-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  z-index: 40;
+  transition: all 0.3s ease;
+  background-color: var(--color-glass-bg);
+  border-bottom: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+header.scrolled {
+  box-shadow: 0 2px 10px var(--color-shadow);
+}
+
+/* Section Headings */
+.section-heading {
+  display: inline-block;
+  text-align: center;    /* Add this line */
+  margin: 0 auto;  
+  background: var(--color-glass-bg);
+  color: var(--color-text-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px var(--color-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+}
+.section-heading-centered {
+  display: inline-flex;
+  text-align: center;
+  margin: 0 auto;
+  background: var(--color-glass-bg);
+  color: var(--color-text-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px var(--color-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Glass Morphism (Generic Class) */
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-primary);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-btn-primary-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--color-shadow);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-btn-outline-border);
+  color: var(--color-btn-outline-text);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-btn-outline-hover-bg);
+  transform: translateY(-2px);
+}
+
+/* Form Styles */
+.form-input {
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-glass-border);
+  background-color: var(--color-glass-bg);
+  color: var(--color-text-primary);
+}
+
+.form-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-focus);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* ... other modal styles */
+}
+
+.modal-content {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  /* ... other modal styles */
+}
+
+.close-modal {
+  color: var(--color-text-primary);
+  /* ... other modal styles */
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  /* ... other mobile menu styles */
+}
+
+/* Progress Bars */
+.progress-bar {
+  background-color: var(--color-text-primary);
+}
+
+
+/* Tooltip Styles */
+.tooltip {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  /* ... other tooltip styles */
+}
+
+/* Underline Animation */
+.underline-animation::after {
+  background-color: var(--color-text-primary);
+  /* ... other underline styles */
+}
+
+/* Preloader */
+#preloader {
+  background-color: var(--color-preloader-bg);
+  z-index: 9999;
+  /* ... other preloader styles */
+}
+
+#preloader div {
+  border-width: 4px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: var(--color-preloader-spinner);
+  border-bottom-color: transparent;
+  border-left-color: var(--color-preloader-spinner);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animations (No theming needed, kept for completeness) */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.4s ease-out forwards; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes logoPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.logo { animation: logoPulse 3s ease-in-out infinite; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Other styles without theming */
+#scrollTopBtn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+  background-color: var(--color-text-primary);
+  transition: width 1.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Add a shimmer effect */
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  opacity: 0.7;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Or if you prefer a bounce effect */
+@keyframes progressBounce {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.03); }
+}
+
+.bounce-animate {
+  animation: progressBounce 0.5s ease-in-out;
+}
+
+ /* Scroll Animation Background */
+  .scroll-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+      135deg,
+      var(--color-bg) 0%,
+      var(--color-secondary) 100%
+    );
+    transition: all 0.5s ease;
+    will-change: transform;
+  }
+
+  .scroll-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 20% 50%,
+      rgba(var(--color-accent-rgb), 0.1) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+  }
+
+  .scroll-bg.active::before {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Add this to your existing CSS */
+  :root {
+    --color-accent-rgb: 59, 130, 246;
+  }
+
+  .dark {
+    --color-accent-rgb: 96, 165, 250;
+  }
+
+/* Add this to your existing CSS */
+:root {
+  --color-accent-rgb: 59, 130, 246;
+}
+
+.dark {
+  --color-accent-rgb: 96, 165, 250;
+}
+/* Mobile button fixes */
+@media (max-width: 640px) {
+  #home .flex.flex-col.sm\\:flex-row.gap-6 {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #home .btn-primary, 
+  #home .btn-outline {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  #home .btn-outline {
+    margin-left: 0;
+  }
+}
+#home .flex.flex-col.sm\\:flex-row.gap-6 {
+  margin-bottom: 2rem;
+}
+#home .btn-primary:hover, 
+#home .btn-outline:hover {
+  transform: scale(1.02);
+}
+
+
+</style>
+<style>
+  /* Add this to your existing styles */
+  @media (max-width: 640px) {
+    #home h1 {
+      font-size: 1.5rem; /* Adjust this value as needed */
+      line-height: 1.2;
+    }
+    
+    #typedName {
+      font-size: 2.3rem; /* Match the h1 size or adjust as needed */
+    }
+  }
+  /* Glass Card Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark .glass-card {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Form Styles */
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  padding: 0 8px;
+  font-size: 0.875rem;
+  color: #4b5563;
+  z-index: 10;
+}
+
+.dark .form-label {
+  background: linear-gradient(to bottom, rgba(15,23,42,0.9), rgba(15,23,42,0.7));
+  color: #9ca3af;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 12px 12px;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.dark .form-input {
+  border-color: #374151;
+  background-color: rgba(31, 41, 55, 0.5);
+  color: #f3f4f6;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.dark .form-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+/* Button Styles */
+.btn-submit {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark .btn-submit {
+  background-color: #2563eb;
+}
+
+.btn-submit:hover {
+  transform: translateY(-1px);
+}
+</style>
+<style>
+  @keyframes marqueeSlide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    animation: marqueeSlide 25s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee-content {
+    display: inline-block;
+    padding-right: 10px; /* gap between items */
+  }
+
+  .dot-separator {
+    display: inline-block;
+    color: white; /* Default light color */
+    padding: 0 5px;
+  }
+
+  .dark .dot-separator {
+    color: black; /* Dark mode color */
+  }
+
+
+  body {
+    overflow-x: hidden;
+  }
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  </head>
+  <body class="transition-colors duration-300">
+    <!-- Scroll Background Animation -->
+    <div class="scroll-bg"></div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 flex items-center justify-center z-[9999]" aria-label="Loading" role="status" aria-live="polite">
+      <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Navbar -->
+   <header class="fixed top-0 w-full z-50 backdrop-blur-lg shadow-md" role="banner">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+    <div class="text-xl font-bold flex items-center">
+      <span class="logo">Ihsan. </span>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-6" role="navigation" aria-label="Primary Navigation">
+      <a href="#home" class="transition-colors duration-300 hover:text-light-accent dark:hover:text-dark-accent underline-animation" aria-current="page">Home</a>
+      <a href="#about" class="transition-colors duration-300 hover:text-light-accent dark:hover:text-dark-accent underline-animation">About</a>
+      <a href="#services" class="transition-colors duration-300 hover:text-light-accent dark:hover:text-dark-accent underline-animation">Services</a>
+      <a href="#works" class="transition-colors duration-300 hover:text-light-accent dark:hover:text-dark-accent underline-animation">Works</a>
+      <a href="#contact" class="transition-colors duration-300 hover:text-light-accent dark:hover:text-dark-accent underline-animation">Contact</a>
+    </nav>
+    
+    <div class="flex items-center gap-4">
+      <!-- Dark Mode Toggle -->
+      <button id="toggleTheme" class="relative w-10 h-10 rounded-full bg-black/10 dark:bg-white/10 transition-all duration-300 flex items-center justify-center hover:scale-110" aria-label="Toggle Dark Mode" title="Toggle Dark Mode" type="button">
+        <!-- Sun Icon (Light Mode) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-light-text dark:text-dark-text absolute transition-all duration-300 opacity-100 dark:opacity-0 dark:scale-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        
+        <!-- Moon Icon (Dark Mode) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-light-text dark:text-dark-text absolute transition-all duration-300 opacity-0 dark:opacity-100 scale-0 dark:scale-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+      
+      <!-- Menu Toggle Button -->
+      <button id="menuButton" class="md:hidden p-2 text-light-text dark:text-dark-text hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-screen z-50 p-6 transition-transform duration-300 transform translate-x-full">
+    <!-- Close Button -->
+    <button id="closeMenuButton" class="absolute top-4 right-4 text-2xl text-light-text dark:text-dark-text hover:text-light-accent dark:hover:text-dark-accent transition-colors">✕</button>
+    <!-- Menu Items -->
+    <nav class="mt-16 flex flex-col space-y-6 text-lg font-semibold">
+      <a href="#home" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">Home</a>
+      <a href="#about" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">About</a>
+      <a href="#services" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">Services</a>
+      <a href="#works" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">Works</a>
+      <a href="#contact" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">Contact</a>
+    </nav>
+    
+    <!-- Mobile Contact Info -->
+    <div class="mt-12 space-y-4">
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-phone text-light-text/80 dark:text-dark-text/80"></i>
+        <span>+91 75588 83004</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-envelope text-light-text/80 dark:text-dark-text/80"></i>
+        <span>issaneyyisu@gmail.com</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-map-marker-alt text-light-text/80 dark:text-dark-text/80"></i>
+        <span>Kerala, India</span>
+      </div>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="flex space-x-4 mt-8">
+      <a href="https://www.behance.net/issaneyyisu" target="_blank" class="text-xl hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+        <i class="fab fa-behance"></i>
+      </a>
+      <a href="https://www.instagram.com/isah_.n/" target="_blank" class="text-xl hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/7558883004" target="_blank" class="text-xl hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+    <!-- home -->
+<section id="home" class="min-h-screen pt-[4.5rem] md:pt-[5rem] px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-10 bg-light-primary dark:bg-dark-primary">
+  <!-- Left: Text Content -->
+  <div class="flex-1 md:pr-10 order-1 mt-8 md:mt-0">
+      <h1 class="text-5xl sm:text-6xl md:text-6xl font-light leading-snug mb-6 md:mb-10">
+        HELLO,
+        I'm <span class="font-semibold"></span><br />
+        <span id="typedName" class="font-bold"></span>
+      </h1>
+
+    <p class="text-sm sm:text-base md:text-lg lg:mr-20 text-light-text/80 dark:text-dark-text/80 mb-6">
+      I'm a passionate graphic designer who enjoys creating posters, ad creatives, cover pages, and more. I love working with color, layout, and typography to bring ideas to life in a clean and impactful way. Using tools like Photoshop, Illustrator, and InDesign, I focus on designs that are both eye-catching and meaningful.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 mt-[20px]">
+  <!-- Contact Button -->
+  <a href="#contact" class="btn-primary px-6 sm:px-8 py-3 sm:py-4 text-sm font-medium rounded-xl transition-all duration-300 hover:scale-105">
+    Get In Touch
+  </a>
+
+  <!-- Portfolio Button -->
+  <a href="#works" class="btn-outline px-6 sm:px-8 py-3 sm:py-4 text-sm font-medium rounded-xl border-2 text-center transition-all duration-300 hover:scale-105">
+    View Portfolio
+  </a>
+</div>
+    
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-10">
+      <div class="glass p-4 rounded-lg shadow-sm">
+        <div class="text-2xl font-bold">50+</div>
+        <div class="text-sm text-light-text/80 dark:text-dark-text/80">Projects</div>
+      </div>
+      <div class="glass p-4 rounded-lg shadow-sm">
+        <div class="text-2xl font-bold">2+</div>
+        <div class="text-sm text-light-text/80 dark:text-dark-text/80">Years Experience</div>
+      </div>
+      <div class="glass p-4 rounded-lg shadow-sm hidden md:block">
+        <div class="text-2xl font-bold">100%</div>
+        <div class="text-sm text-light-text/80 dark:text-dark-text/80">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Profile Card -->
+  <div id="profileCard" class="transform-gpu transition duration-500 hover:rotate-[3deg] hover:-translate-y-2 hover:scale-105 glass rounded-xl shadow-md p-6 sm:p-8 md:p-10 w-full max-w-xs mx-auto md:mx-0 order-2 text-center text-sm">
+    <!-- Profile Image -->
+    <div class="rounded-xl overflow-hidden mb-4 animate-float">
+      <img src="IMG_0354.JPG" alt="Ihsan" class="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover rounded-xl shadow-lg" />
+    </div>
+
+    <!-- Name and Subtitle -->
+    <h3 class="text-xl font-semibold mb-1">Ihsan</h3>
+    <p class="text-light-text/80 dark:text-dark-text/80 text-sm">Creative Designer | Typography Expert</p>
+  </div>
+</section>
+
+    <!-- About -->
+    <section id="about" class="scroll-mt-16 py-12 md:py-16 lg:py-20 px-4 sm:px-6 text-center bg-light-secondary dark:bg-dark-secondary" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-delay="250">
+      <!-- Section Title -->
+      <h2 class="text-2xl font-bold mb-8 md:mb-10 section-heading">
+        About Me
+      </h2>
+
+      <!-- About Content -->
+      <div class="max-w-3xl mx-auto p-6 md:p-8 lg:p-12 text-base md:text-lg leading-relaxed glass rounded-2xl shadow-lg">
+        <p class="mb-4">
+          I'm <strong>Ihsan</strong>, a passionate graphic designer from Kerala who blends creativity with clarity.
+          My focus areas include logos, posters, typography, and ads, using tools like Adobe Photoshop and Illustrator to craft visually impactful stories.
+          I believe design isn't just how it looks, it's how it speaks, connects, and communicates with purpose.
+        </p>
+        
+        <p class="mb-6">
+          With over 5 years of professional experience, I've had the privilege to work with clients across various industries, 
+          helping them establish their visual identity and communicate their message effectively through thoughtful design.
+        </p>
+
+        <!-- Skill Bars -->
+       <h3 class="text-xl font-semibold mb-4 md:mb-6 text-center section-heading mx-auto">
+  Software Expertise
+</h3>
+
+          <!-- Photoshop -->
+          <div class="mb-4 md:mb-5">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Adobe Photoshop</span>
+              <span>90%</span>
+            </div>
+            <div class="w-full h-2 md:h-3 bg-light-secondary dark:bg-dark-text/30  rounded-full overflow-hidden">
+              <div class="progress-bar h-full rounded-full" data-fill="90%"></div>
+            </div>
+          </div>
+
+          <!-- Illustrator -->
+          <div class="mb-4 md:mb-5">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Adobe Illustrator</span>
+              <span>85%</span>
+            </div>
+            <div class="w-full h-2 md:h-3 bg-light-secondary dark:bg-dark-text/30 rounded-full overflow-hidden">
+              <div class="progress-bar h-full rounded-full" data-fill="85%"></div>
+            </div>
+          </div>
+
+          <!-- InDesign -->
+          <div class="mb-4 md:mb-5">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Adobe InDesign</span>
+              <span>75%</span>
+            </div>
+            <div class="w-full h-2 md:h-3 bg-light-secondary dark:bg-dark-text/30 rounded-full overflow-hidden">
+              <div class="progress-bar h-full rounded-full" data-fill="75%"></div>
+            </div>
+          </div>
+          
+          <!-- Canva -->
+          <div>
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>capcut</span>
+              <span>60%</span>
+            </div>
+            <div class="w-full h-2 md:h-3 bg-light-secondary dark:bg-dark-text/30 rounded-full overflow-hidden">
+              <div class="progress-bar h-full rounded-full" data-fill="60%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seamless Marquee Banner -->
+<div class="w-full overflow-hidden bg-black dark:bg-white py-4">
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <!-- First set (visible) -->
+      <span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+
+<!-- Second set (duplicate for seamless loop) -->
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+
+    </div>
+  </div>
+</div>
+    <!-- Services Section -->
+    <section id="services" class="scroll-mt-16 py-12 md:py-16 px-4 sm:px-6 text-center bg-light-primary dark:bg-dark-primary" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-delay="300">
+      <h2 class="text-2xl font-bold mb-8 md:mb-10 section-heading">
+        My Services
+      </h2>
+      
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4">
+        <!-- Logo Design -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Logo Design</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Crafting unique and memorable logos that capture your brand's essence and make a lasting impression.
+          </p>
+        </div>
+        
+        <!-- Poster Design -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-image"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Poster Design</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Eye-catching posters for events, promotions, and announcements that effectively communicate your message.
+          </p>
+        </div>
+        
+        <!-- Magazine Layout -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Magazine Layout</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Professional magazine and booklet designs with balanced typography and visual hierarchy.
+          </p>
+        </div>
+        
+        <!-- Social Media Graphics -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Social Media Graphics</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Engaging social media posts, covers, and stories designed to boost your online presence.
+          </p>
+        </div>
+        
+        <!-- Brand Identity -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Brand Identity</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Comprehensive brand packages including logo, color palette, typography, and brand guidelines.
+          </p>
+        </div>
+        
+        <!-- Print Design -->
+        <div class="glass p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-3xl mb-3 text-light-accent dark:text-dark-accent">
+            <i class="fas fa-print"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Print Design</h3>
+          <p class="text-light-text/80 dark:text-dark-text/80">
+            Business cards, flyers, brochures, and other print materials designed for maximum impact.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- works -->
+    <section id="works" class="scroll-mt-16 pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 text-center bg-light-secondary dark:bg-dark-secondary" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-delay="300">
+      <h2 class="text-2xl font-bold mb-8 md:mb-10 section-heading">
+        My Works
+      </h2>
+
+      <div class="max-w-6xl mx-auto px-2 sm:px-4">
+        <div class="columns-1 sm:columns-2 md:columns-3 gap-3 sm:gap-4 space-y-3 sm:space-y-4" id="works-grid">
+          <!-- First 2 Cards -->
+          <div class="break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="logo.jpg" alt="Logo Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Logo Design</p>
+          </div>
+
+          <div class="break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="carousel.png" alt="Carousel Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Carousel Design</p>
+          </div>
+          <div class="break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="doc day.jpg" alt="Special day Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Special day Design</p>
+          </div>
+
+          <!-- Hidden Cards -->
+          <div class="more-card hidden opacity-0 transition-opacity duration-700 break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="quran.jpg" alt="Poster Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Poster Design</p>
+          </div>
+
+          <div class="more-card hidden opacity-0 transition-opacity duration-700 break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="dhiu.jpg" alt="Special Day Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Special Day Design</p>
+          </div>
+
+          <div class="more-card hidden opacity-0 transition-opacity duration-700 break-inside-avoid overflow-hidden rounded-xl shadow-xl glass text-white p-2">
+            <div class="overflow-hidden rounded-md mb-2">
+              <img src="star.jpg" alt="Poster Design" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+            <p class="text-sm text-light-text/80 dark:text-dark-text/80">Poster Design</p>
+          </div>
+        </div>
+
+        <!-- Show More / Show Less Button -->
+        <button id="toggleButton" onclick="toggleWorks()" class="mt-6 px-6 py-2 text-sm font-medium rounded-xl glass text-light-text dark:text-dark-text border border-light-text/20 dark:border-dark-text/20 backdrop-blur-md transition duration-300 hover:bg-light-primary/20 dark:hover:bg-dark-primary/20">
+          Show More
+        </button>
+      </div>
+    </section>
+    <!-- Seamless Marquee Banner -->
+<div class="w-full overflow-hidden bg-black dark:bg-white py-4">
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <!-- First set (visible) -->
+      <span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+
+<!-- Second set (duplicate for seamless loop) -->
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Logo Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Poster Design</span>
+<span class="dot-separator">✦</span>
+<span class="marquee-content text-white dark:text-black font-semi-bold text-lg">Magazine Design</span>
+<span class="dot-separator">✦</span>
+
+    </div>
+  </div>
+</div>
+
+   <!-- Contact Section -->
+<section id="contact" class="scroll-mt-16 py-16 px-4 sm:px-6 bg-light-primary dark:bg-dark-primary">
+  <div class="max-w-6xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-delay="350">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center text-light-text dark:text-dark-text">Get In Touch</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <!-- Contact Information Column -->
+      <div class="space-y-6">
+        <h3 class="text-2xl font-semibold text-light-text dark:text-dark-text mb-6">Contact Information</h3>
+        
+        <!-- Contact Cards -->
+        <div class="space-y-4">
+          <!-- Location Card -->
+          <div class="glass-card p-6 rounded-xl transition-all hover:scale-[1.02]">
+            <div class="flex items-center gap-4">
+              <div class="text-2xl text-light-accent dark:text-dark-accent">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-light-text dark:text-dark-text">Location</h4>
+                <p class="text-light-text/80 dark:text-dark-text/80">Kerala, India</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Email Card -->
+          <div class="glass-card p-6 rounded-xl transition-all hover:scale-[1.02]">
+            <div class="flex items-center gap-4">
+              <div class="text-2xl text-light-accent dark:text-dark-accent">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-light-text dark:text-dark-text">Email</h4>
+                <a href="mailto:issaneyyisu@gmail.com" class="text-light-text/80 dark:text-dark-text/80 hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+                  issaneyy12@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Phone Card -->
+          <div class="glass-card p-6 rounded-xl transition-all hover:scale-[1.02]">
+            <div class="flex items-center gap-4">
+              <div class="text-2xl text-light-accent dark:text-dark-accent">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-light-text dark:text-dark-text">Phone</h4>
+                <a href="tel:+917558883004" class="text-light-text/80 dark:text-dark-text/80 hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+                  +91 75588 83004
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Media -->
+        <div class="pt-6">
+          <h4 class="font-bold text-lg text-light-text dark:text-dark-text mb-4">Follow Me</h4>
+          <div class="flex gap-5 justify-center lg:justify-start">
+            <a href="https://www.behance.net/issaneyyisu" target="_blank" 
+               class="social-icon text-2xl text-light-text/80 dark:text-dark-text/80 hover:text-light-accent dark:hover:text-dark-accent transition-all hover:scale-110">
+              <i class="fab fa-behance"></i>
+            </a>
+            <a href="https://www.instagram.com/isah_.n/" target="_blank" 
+               class="social-icon text-2xl text-light-text/80 dark:text-dark-text/80 hover:text-light-accent dark:hover:text-dark-accent transition-all hover:scale-110">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/7558883004" target="_blank" 
+               class="social-icon text-2xl text-light-text/80 dark:text-dark-text/80 hover:text-light-accent dark:hover:text-dark-accent transition-all hover:scale-110">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form Column -->
+      <div class="glass-card p-8 rounded-xl shadow-lg">
+        <form action="https://formspree.io/f/mgvzvagg" method="POST" class="space-y-5">
+          <!-- Name Field -->
+          <div class="form-group">
+            
+            <input type="text" id="name" name="name" required 
+                   class="form-input" placeholder="Enter your name">
+          </div>
+          
+          <!-- Email Field -->
+          <div class="form-group">
+           
+            <input type="email" id="email" name="email" required 
+                   class="form-input" placeholder="Enter your email">
+          </div>
+          
+          <!-- Subject Field -->
+          <div class="form-group">
+            
+            <input type="text" id="subject" name="subject" required 
+                   class="form-input" placeholder="What's this about?">
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group">
+            
+            <textarea id="message" name="message" rows="4" required 
+                      class="form-input" placeholder="Your message here..."></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-submit w-full py-3 px-6 rounded-lg font-semibold transition-all hover:opacity-90">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- Footer -->
+<footer class="bg-light-secondary/50 dark:bg-dark-secondary/50 backdrop-blur-sm border-t border-light-text/20 dark:border-dark-text/20 py-8 md:py-10">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Your grid content here -->
+    </div>
+    
+    <div class="border-t border-light-text/20 dark:border-dark-text/20 mt-8 pt-6 text-center">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+        <p class="text-sm text-light-text/80 dark:text-dark-text/80">
+          &copy; 2025 Ihsan. All rights reserved.
+        </p>
+        
+        <div class="flex space-x-4">
+          <a href="https://www.behance.net/issaneyyisu" target="_blank" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+            <i class="fab fa-behance"></i>
+          </a>
+          <a href="https://www.instagram.com/isah_.n/" target="_blank" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/7558883004" target="_blank" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- Dark Mode Script with localStorage -->
+    <script>
+      const toggleBtn = document.getElementById("toggleTheme");
+      
+      // Function to set theme
+      function setTheme(theme) {
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+      }
+      
+      // Load saved theme preference
+      const savedTheme = localStorage.getItem("theme") || "light";
+      setTheme(savedTheme);
+      
+      // Toggle theme function
+      function toggleDarkMode() {
+        if (document.documentElement.classList.contains("dark")) {
+          setTheme("light");
+        } else {
+          setTheme("dark");
+        }
+      }
+      
+      // Event listener for theme toggle button
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", toggleDarkMode);
+      }
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top" aria-label="Scroll to top" class="fixed bottom-6 right-6 bg-light-text text-light-primary dark:bg-dark-text dark:text-dark-primary p-3 rounded-full shadow-lg transition hover:scale-110 z-50">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      const scrollBtn = document.getElementById("scrollTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          scrollBtn.classList.add("visible");
+        } else {
+          scrollBtn.classList.remove("visible");
+        }
+      });
+
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Page fade-in on load
+      window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+        // Hide preloader
+        document.getElementById('preloader').style.display = 'none';
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Typed("#typedName", {
+          strings: [
+            "Ihsan",
+            "a Graphic Designer",
+            "a Typographer",
+            "a Visual Storyteller",
+          ],
+          typeSpeed: 70,
+          backSpeed: 40,
+          backDelay: 1200,
+          loop: true,
+        });
+      });
+    </script>
+    
+   <!-- Scroll Background Animation Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollBg = document.querySelector('.scroll-bg');
+        
+        // Check if scrollBg exists
+        if (!scrollBg) {
+          console.error('Scroll background element not found');
+          return;
+        }
+        
+        function handleScroll() {
+          const scrollPosition = window.scrollY;
+          const scrollThreshold = 100;
+          
+          if (scrollPosition > scrollThreshold) {
+            scrollBg.classList.add('active');
+          } else {
+            scrollBg.classList.remove('active');
+          }
+          
+          // Parallax effect - reduced intensity
+          scrollBg.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+        }
+        
+        // Initialize
+        handleScroll();
+        
+        // Add scroll event listener with debounce
+        let isScrolling;
+        window.addEventListener('scroll', function() {
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(handleScroll, 50);
+        }, { passive: true });
+      });
+    </script>
+
+    <!-- ... (keep all other scripts) ... -->
+
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault(); // prevent default form submit
+
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          showToast("Message sent successfully!");
+          form.reset();
+        } else {
+          showToast("Oops! Something went wrong.");
+        }
+      });
+
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.textContent = message;
+        toast.className = "fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-light-text text-light-primary dark:bg-dark-text dark:text-dark-primary px-6 py-3 rounded-lg shadow-lg animate-fade-in";
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.classList.add("opacity-0", "transition", "duration-500");
+          setTimeout(() => toast.remove(), 500);
+        }, 3000);
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+  const bars = document.querySelectorAll(".progress-bar");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const fill = bar.getAttribute("data-fill");
+          
+          // Reset to 0 first for the animation
+          bar.style.width = '0';
+          
+          // Force reflow to ensure reset takes effect before animation
+          void bar.offsetWidth;
+          
+          // Animate to the target width
+          bar.style.width = fill;
+          
+          // Add bounce class for additional effect
+          bar.classList.add('bounce-animate');
+          
+          observer.unobserve(bar);
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+  
+
+  bars.forEach(bar => {
+    observer.observe(bar);
+    
+    // Remove bounce animation after it completes
+    bar.addEventListener('transitionend', () => {
+      bar.classList.remove('bounce-animate');
+    });
+  });
+});
+
+    </script>
+    
+    <script>
+      let shown = false;
+      function toggleWorks() {
+        const cards = document.querySelectorAll('.more-card');
+        const button = document.getElementById('toggleButton');
+        
+        if (!shown) {
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.remove('hidden');
+              card.classList.add('opacity-100');
+              card.classList.remove('opacity-0');
+            }, index * 100);
+          });
+          button.textContent = 'Show Less';
+        } else {
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('opacity-0');
+              setTimeout(() => {
+                card.classList.add('hidden');
+                card.classList.remove('opacity-100');
+              }, 300);
+            }, index * 50);
+          });
+          button.textContent = 'Show More';
+        }
+        shown = !shown;
+      }
+    </script>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+      const menu = document.getElementById("mobileMenu");
+      const openBtn = document.getElementById("menuButton");
+      const closeBtn = document.getElementById("closeMenuButton");
+
+      openBtn.addEventListener("click", () => {
+        menu.classList.remove("translate-x-full");
+        menu.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        menu.classList.add("translate-x-full");
+        menu.classList.remove("open");
+      });
+
+      // Optional: Close on link click
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('translate-x-full');
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+    
+    <!-- Header Scroll Effect -->
+    <script>
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html> 
